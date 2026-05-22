@@ -1,0 +1,30 @@
+{
+  "name": "spotlive",
+  "version": "0.1.0",
+  "description": "A Spotify Now Playing component library and CLI tool in the style of shadcn/ui",
+  "main": "./dist/index.js",
+  "bin": {
+    "spotlive": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts",
+    "dev": "tsup src/index.ts --format cjs --watch"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "open": "^10.1.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT"
+}
