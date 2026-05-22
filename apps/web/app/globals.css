@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3eadb;
+  --paper-2: #ebe0cc;
+  --paper-3: #e0d2b6;
+  --ink: #2a1d11;
+  --ink-soft: #5a4632;
+  --ink-mute: #8a7355;
+  --record: #161108;
+  --record-2: #221912;
+  --green: #3f7a3a;
+  --green-deep: #2c5827;
+  --orange: #c8541f;
+  --ochre: #c89b3c;
+  --rule: #d8c9ab;
+
+  --font-display: "Instrument Serif", "DM Serif Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--paper);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(42, 29, 17, 0.045) 1px, transparent 0),
+    radial-gradient(circle at 18px 14px, rgba(42, 29, 17, 0.03) 1px, transparent 0);
+  background-size: 8px 8px, 24px 24px;
+}
+
+a {
+  color: inherit;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+@keyframes livefill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes progress-bar {
+  0% { width: 22%; }
+  100% { width: 88%; }
+}

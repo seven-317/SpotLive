@@ -10,7 +10,7 @@ const SPOTIFY_SCOPES = [
   "user-read-playback-state",
 ].join(" ");
 
-const REDIRECT_URI = "http://localhost:8888/callback";
+const REDIRECT_URI = "http://127.0.0.1:8888/callback";
 
 // ─── Credential prompting ────────────────────────────────────────────────────
 
@@ -19,77 +19,24 @@ export interface SpotifyCredentials {
   clientSecret: string;
 }
 
-function maskInput(rl: readline.Interface, prompt: string): Promise<string> {
-  return new Promise((resolve) => {
-    const stream = process.stdout;
-
-    process.stdout.write(prompt);
-
-    // Switch stdin to raw mode for masking
-    const stdin = process.stdin;
-    const wasPaused = stdin.isPaused();
-    stdin.setRawMode?.(true);
-    stdin.resume();
-    stdin.setEncoding("utf8");
-
-    let input = "";
-
-    const onData = (char: string) => {
-      if (char === "\r" || char === "\n") {
-        stdin.setRawMode?.(false);
-        if (wasPaused) stdin.pause();
-        stdin.removeListener("data", onData);
-        stream.write("\n");
-        resolve(input);
-      } else if (char === "") {
-        // Ctrl+C
-        process.exit(0);
-      } else if (char === "" || char === "\b") {
-        // Backspace
-        if (input.length > 0) {
-          input = input.slice(0, -1);
-          stream.write("\b \b");
-        }
-      } else {
-        input += char;
-        stream.write("*");
-      }
-    };
-
-    stdin.on("data", onData);
-
-    // Pause the readline interface so it doesn't consume our raw input
-    rl.pause();
+function promptLine(question: string): Promise<string> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: true,
   });
-}
-
-function ask(rl: readline.Interface, prompt: string): Promise<string> {
   return new Promise((resolve) => {
-    rl.resume();
-    rl.question(prompt, (answer) => {
+    rl.question(question, (answer) => {
+      rl.close();
       resolve(answer.trim());
     });
   });
 }
 
 export async function promptCredentials(): Promise<SpotifyCredentials> {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: true,
-  });
-
-  let clientId = "";
-  let clientSecret = "";
-
-  try {
-    clientId = await ask(rl, "Spotify Client ID: ");
-    clientSecret = await maskInput(rl, "Spotify Client Secret: ");
-  } finally {
-    rl.close();
-  }
-
-  return { clientId: clientId.trim(), clientSecret: clientSecret.trim() };
+  const clientId = await promptLine("Spotify Client ID: ");
+  const clientSecret = await promptLine("Spotify Client Secret: ");
+  return { clientId, clientSecret };
 }
 
 // ─── OAuth flow ──────────────────────────────────────────────────────────────
@@ -153,7 +100,7 @@ function waitForCallback(
 ): Promise<{ code: string; error?: string }> {
   return new Promise((resolve, reject) => {
     server.on("request", (req, res) => {
-      const reqUrl = new URL(req.url ?? "/", "http://localhost:8888");
+      const reqUrl = new URL(req.url ?? "/", "http://127.0.0.1:8888");
 
       if (reqUrl.pathname !== "/callback") {
         res.writeHead(404).end();
@@ -212,7 +159,7 @@ export async function runOAuthFlow(
   const server = http.createServer();
 
   await new Promise<void>((resolve, reject) => {
-    server.listen(8888, "localhost", () => resolve());
+    server.listen(8888, "127.0.0.1", () => resolve());
     server.on("error", reject);
   });
 
@@ -252,7 +199,6 @@ export function updateEnvLocal(
   const lines = content.split("\n");
   const updated = new Set<string>();
 
-  // Update existing keys in-place
   const newLines = lines.map((line) => {
     const match = /^([A-Z0-9_]+)=/.exec(line);
     if (match) {
@@ -265,11 +211,9 @@ export function updateEnvLocal(
     return line;
   });
 
-  // Append keys that didn't exist yet
   const toAppend = Object.entries(vars).filter(([k]) => !updated.has(k));
 
   if (toAppend.length > 0) {
-    // Ensure trailing newline before appending
     if (newLines[newLines.length - 1] !== "") {
       newLines.push("");
     }
@@ -278,7 +222,6 @@ export function updateEnvLocal(
     }
   }
 
-  // Ensure single trailing newline
   let result = newLines.join("\n");
   result = result.replace(/\n+$/, "") + "\n";
 
