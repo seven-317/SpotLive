@@ -2,6 +2,10 @@
   "name": "spotlive-root",
   "private": true,
   "workspaces": [
-    "packages/*"
-  ]
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "web": "npm run dev --workspace=apps/web"
+  }
 }

@@ -85,7 +85,7 @@ async function runInit() {
   );
   console.log(
     pc.dim(
-      "  Set the Redirect URI to: http://localhost:8888/callback\n"
+      "  Set the Redirect URI to: http://127.0.0.1:8888/callback\n"
     )
   );
 
