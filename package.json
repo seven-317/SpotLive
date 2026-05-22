@@ -1,0 +1,7 @@
+{
+  "name": "spotlive-root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
