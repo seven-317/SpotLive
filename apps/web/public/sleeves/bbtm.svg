@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bbtm-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1730" />
+      <stop offset="1" stop-color="#080614" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#bbtm-bg)" />
+  <ellipse cx="100" cy="0" rx="120" ry="40" fill="#3a2d5e" opacity="0.4" />
+  <ellipse cx="100" cy="80" rx="32" ry="40" fill="#0a0815" />
+  <path d="M 50 200 Q 75 130 100 130 Q 125 130 150 200 Z" fill="#0a0815" />
+  <text x="14" y="186" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#9b8fc4" opacity="0.7">beauty behind the madness</text>
+</svg>

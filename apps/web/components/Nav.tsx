@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SpotLive } from "@/app/components/SpotLive";
+import { WEEKND_TRACKS } from "@/lib/weeknd-tracks";
 
 const links = [
   { href: "/", label: "Overview" },
-  { href: "/demo", label: "Live demo" },
+  { href: "/demo", label: "Demo" },
   { href: "/docs", label: "Docs" },
   {
     href: "https://github.com/seven-317/SpotLive",
@@ -19,6 +21,7 @@ export default function Nav() {
 
   return (
     <nav
+      className="rwd-nav"
       style={{
         display: "flex",
         alignItems: "center",
@@ -29,6 +32,7 @@ export default function Nav() {
         position: "sticky",
         top: 0,
         zIndex: 50,
+        gap: 16,
       }}
     >
       {/* Brand */}
@@ -80,7 +84,7 @@ export default function Nav() {
       </Link>
 
       {/* Nav links */}
-      <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
+      <div className="rwd-nav-links rwd-nav-links-mobile" style={{ display: "flex", gap: 28, alignItems: "center" }}>
         {links.map((link) => {
           const isActive = link.external
             ? false
@@ -119,6 +123,12 @@ export default function Nav() {
         })}
       </div>
 
+      {/* Live player widget */}
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div className="rwd-hide-md">
+          <SpotLive variant="player" demoData={WEEKND_TRACKS} />
+        </div>
+
       {/* CTA */}
       <Link
         href="/docs"
@@ -140,6 +150,7 @@ export default function Nav() {
         <span style={{ fontSize: "0.8em" }}>▸</span>
         Get started
       </Link>
+      </div>
     </nav>
   );
 }
