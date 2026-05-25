@@ -73,3 +73,50 @@ a {
   0% { width: 22%; }
   100% { width: 88%; }
 }
+
+/* ─── Responsive utilities ─────────────────────────────────────────────── */
+
+/* Hidden by default; revealed on small screens (see media query below) */
+.rwd-show-md { display: none; }
+
+/* Tablet + mobile: collapse multi-column grids */
+@media (max-width: 880px) {
+  .rwd-stack { grid-template-columns: 1fr !important; }
+  .rwd-stack-3 { grid-template-columns: 1fr !important; }
+  .rwd-docs-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding: 40px 24px 80px !important; }
+  .rwd-docs-aside { display: none !important; }
+  .rwd-footer-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Reduce huge hero scale so the vinyl fits */
+  .rwd-hero-scale { transform: scale(1) !important; }
+
+  /* Reduce hero/section padding */
+  .rwd-section { padding: 60px 0 !important; }
+  .rwd-hero { padding: 40px 0 80px !important; gap: 40px !important; }
+
+  /* Hide the fixed vinyl peek and the nav player widget on small screens */
+  .rwd-hide-md { display: none !important; }
+  .rwd-show-md { display: block !important; }
+
+  /* Reduce container padding */
+  .rwd-container { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* Nav: tighter spacing and smaller link gaps */
+  .rwd-nav { padding: 16px 24px !important; }
+  .rwd-nav-links { gap: 16px !important; font-size: 0.85rem !important; }
+}
+
+/* Phone-only refinements */
+@media (max-width: 640px) {
+  .rwd-hide-sm { display: none !important; }
+  .rwd-footer-grid { grid-template-columns: 1fr !important; }
+
+  /* Hide nav text links entirely; keep brand + CTA */
+  .rwd-nav-links-mobile { display: none !important; }
+
+  /* Final CTA: smaller padding */
+  .rwd-final-cta { padding: 60px 24px !important; }
+
+  /* Headings clamp already handles size; just tighten spacing */
+  .rwd-hero { padding: 24px 0 60px !important; }
+}

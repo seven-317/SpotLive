@@ -1,11 +1,9 @@
 import Link from "next/link";
-import VinylWidgetDemo from "@/components/VinylWidgetDemo";
-import PlayerWidgetDemo from "@/components/PlayerWidgetDemo";
-import {
-  DreamsSleeve,
-  HeartOfGlassSleeve,
-  SirDukeSleeve,
-} from "@/components/SleeveSvg";
+import { SpotLive } from "@/app/components/SpotLive";
+import { WEEKND_TRACKS } from "@/lib/weeknd-tracks";
+
+// First track only — for the hero, we want it to stay put (no cycling)
+const HERO_TRACK = [WEEKND_TRACKS[0]!];
 
 /* ---- tiny style helpers (inline) ---- */
 const container: React.CSSProperties = {
@@ -24,6 +22,7 @@ export default function Home() {
     <>
       {/* ===== HERO ===== */}
       <header
+        className="rwd-hero"
         style={{
           padding: "80px 0 120px",
           position: "relative",
@@ -31,6 +30,7 @@ export default function Home() {
         }}
       >
         <div
+          className="rwd-stack rwd-container"
           style={{
             ...container,
             display: "grid",
@@ -143,7 +143,7 @@ export default function Home() {
                   textDecoration: "none",
                 }}
               >
-                See it live
+                See the demo
               </Link>
             </div>
 
@@ -197,7 +197,9 @@ export default function Home() {
               minHeight: 540,
             }}
           >
-            <VinylWidgetDemo sleeve={<DreamsSleeve />} size={460} />
+            <div className="rwd-hero-scale" style={{ transform: "scale(1.5)", transformOrigin: "center" }}>
+              <SpotLive variant="vinyl" embedded demoData={HERO_TRACK} />
+            </div>
 
             {/* Price tag */}
             <div
@@ -283,6 +285,7 @@ export default function Home() {
 
           {/* Grid */}
           <div
+            className="rwd-stack"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -321,7 +324,7 @@ export default function Home() {
               >
                 variant=&quot;vinyl&quot;
               </span>
-              <VinylWidgetDemo sleeve={<DreamsSleeve />} size={280} />
+              <SpotLive variant="vinyl" embedded demoData={WEEKND_TRACKS} />
               <div>
                 <h3
                   style={{
@@ -333,8 +336,9 @@ export default function Home() {
                   The Vinyl
                 </h3>
                 <p style={{ color: "var(--ink-soft)", margin: 0, maxWidth: 320 }}>
-                  A real 12-inch record that spins at 33⅓ rpm while your track
-                  plays. The cover sits at the label. Pauses when you pause.
+                  A spinning record fixed to the edge of your page — peeks out
+                  by a third, slides further on hover. The cover sits at the
+                  label, pauses when you pause.
                 </p>
               </div>
             </div>
@@ -371,13 +375,7 @@ export default function Home() {
               >
                 variant=&quot;player&quot;
               </span>
-              <PlayerWidgetDemo
-                title="Heart of Glass"
-                artist="Blondie"
-                album="Parallel Lines"
-                sleeve={<HeartOfGlassSleeve />}
-                progressPct={44}
-              />
+              <SpotLive variant="player" demoData={WEEKND_TRACKS} />
               <div>
                 <h3
                   style={{
@@ -389,9 +387,8 @@ export default function Home() {
                   The Web Player
                 </h3>
                 <p style={{ color: "var(--ink-soft)", margin: 0, maxWidth: 320 }}>
-                  A compact card with cover art, track title, and a
-                  live-updating progress bar. Drop it in a sidebar, a footer,
-                  anywhere.
+                  A compact pill with cover, title, artist, time and a faux
+                  control set. Sized to slot into a nav bar or sidebar.
                 </p>
               </div>
             </div>
@@ -694,6 +691,7 @@ export default function Home() {
           </div>
 
           <div
+            className="rwd-stack-3"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
@@ -920,7 +918,7 @@ export default function Home() {
               textDecoration: "none",
             }}
           >
-            Open the live demo
+            Open the demo
           </Link>
         </div>
       </section>

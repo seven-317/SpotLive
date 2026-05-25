@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { SpotLive } from "@/app/components/SpotLive";
+import { WEEKND_TRACKS } from "@/lib/weeknd-tracks";
 
 export const metadata: Metadata = {
   title: "SpotLive — your now-playing, on your site",
@@ -31,6 +33,9 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <div className="rwd-hide-md">
+          <SpotLive variant="vinyl" position="right" demoData={WEEKND_TRACKS} />
+        </div>
       </body>
     </html>
   );

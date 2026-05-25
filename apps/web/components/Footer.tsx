@@ -13,6 +13,7 @@ export default function Footer() {
       }}
     >
       <div
+        className="rwd-footer-grid"
         style={{
           maxWidth: 1200,
           margin: "0 auto",
@@ -76,7 +77,7 @@ export default function Footer() {
           >
             {[
               { href: "/", label: "Overview" },
-              { href: "/demo", label: "Live demo" },
+              { href: "/demo", label: "Demo" },
               { href: "/docs", label: "Docs" },
             ].map((l) => (
               <li key={l.href}>

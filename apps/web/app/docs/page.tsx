@@ -198,6 +198,7 @@ export default function DocsPage() {
 
       {/* Docs shell */}
       <div
+        className="rwd-docs-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "240px 1fr 240px",
@@ -209,7 +210,7 @@ export default function DocsPage() {
         }}
       >
         {/* TOC */}
-        <aside style={{ position: "sticky", top: 100 }}>
+        <aside className="rwd-docs-aside" style={{ position: "sticky", top: 100 }}>
           <h4
             style={{
               fontFamily: "var(--font-mono)",
@@ -804,13 +805,13 @@ export default function DocsPage() {
                 textDecoration: "none",
               }}
             >
-              Open live demo
+              Open demo
             </Link>
           </div>
         </main>
 
         {/* Side meta */}
-        <aside style={{ position: "sticky", top: 100, display: "grid", gap: 28 }}>
+        <aside className="rwd-docs-aside" style={{ position: "sticky", top: 100, display: "grid", gap: 28 }}>
           {/* Package info */}
           <div
             style={{
