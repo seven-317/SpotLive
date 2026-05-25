@@ -287,7 +287,7 @@ export default function DocsPage() {
 
             <Note tag="Requirements">
               <strong>Node 18 or later</strong>, a Next.js App Router project,
-              and a free Spotify developer account. Pages Router is not
+              and a premium Spotify developer account. Pages Router is not
               supported.
             </Note>
           </section>
