@@ -55,7 +55,7 @@ function CliBlock({
         <span>{filename}</span>
         <span style={{ color: "var(--ink-mute)" }}>{lang}</span>
       </div>
-      <div style={{ padding: "18px 20px", lineHeight: 1.7 }}>{children}</div>
+      <div style={{ padding: "18px 20px", lineHeight: 1.7, overflowX: "auto" }}>{children}</div>
     </div>
   );
 }

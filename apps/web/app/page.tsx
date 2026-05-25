@@ -594,6 +594,7 @@ export default function Home() {
                 style={{
                   padding: "18px 20px",
                   lineHeight: 1.7,
+                  overflowX: "auto",
                 }}
               >
                 <span style={{ color: "var(--ink-mute)", fontStyle: "italic" }}>
