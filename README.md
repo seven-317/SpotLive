@@ -1,3 +1,5 @@
+[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/seven317)
+
 # SpotLive
 
 A drop-in **Spotify "Now Playing"** widget for Next.js — shadcn/ui style. One CLI command copies a `SpotLive.tsx` component and an `/api/spotify` route handler straight into your project. Zero UI dependencies, zero runtime libraries; just React + Tailwind.
