@@ -1,17 +1,28 @@
 {
   "name": "spotlive",
   "version": "0.1.0",
-  "description": "A Spotify Now Playing component library and CLI tool in the style of shadcn/ui",
+  "description": "A Spotify Now Playing component library and CLI tool in the style of shadcn/ui — zero UI dependencies, pure Tailwind + React.",
+  "keywords": [
+    "spotify",
+    "nextjs",
+    "now-playing",
+    "react",
+    "tailwind",
+    "cli",
+    "shadcn",
+    "component"
+  ],
   "main": "./dist/index.js",
   "bin": {
-    "spotlive": "./dist/index.js"
+    "spotlive": "dist/index.js"
   },
   "engines": {
     "node": ">=18"
   },
   "scripts": {
     "build": "tsup src/index.ts --format cjs --dts",
-    "dev": "tsup src/index.ts --format cjs --watch"
+    "dev": "tsup src/index.ts --format cjs --watch",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "commander": "^12.1.0",
@@ -24,7 +35,21 @@
     "typescript": "^5.6.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "author": "seven-317",
+  "homepage": "https://github.com/seven-317/SpotLive#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seven-317/SpotLive.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/seven-317/SpotLive/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
