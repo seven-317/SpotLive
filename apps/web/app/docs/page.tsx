@@ -420,6 +420,7 @@ export default function DocsPage() {
           </CliBlock>
 
           <div
+            className="rwd-stack"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",

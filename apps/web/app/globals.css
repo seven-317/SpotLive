@@ -94,6 +94,10 @@ a {
   .rwd-section { padding: 60px 0 !important; }
   .rwd-hero { padding: 40px 0 80px !important; gap: 40px !important; }
 
+  /* Tighter gap when stacked */
+  .rwd-stack { gap: 40px !important; }
+  .rwd-stack-3 { gap: 20px !important; }
+
   /* Hide the fixed vinyl peek and the nav player widget on small screens */
   .rwd-hide-md { display: none !important; }
   .rwd-show-md { display: block !important; }
@@ -119,4 +123,11 @@ a {
 
   /* Headings clamp already handles size; just tighten spacing */
   .rwd-hero { padding: 24px 0 60px !important; }
+
+  /* Even tighter section padding on phones */
+  .rwd-section { padding: 48px 0 !important; }
+
+  /* Tighter stack gap on phones */
+  .rwd-stack { gap: 28px !important; }
+  .rwd-stack-3 { gap: 16px !important; }
 }
