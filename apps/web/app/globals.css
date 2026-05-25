@@ -28,6 +28,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -78,6 +79,13 @@ a {
 
 /* Hidden by default; revealed on small screens (see media query below) */
 .rwd-show-md { display: none; }
+
+/* Grid children must be able to shrink below content width */
+.rwd-stack > *,
+.rwd-stack-3 > *,
+.rwd-docs-grid > * {
+  min-width: 0;
+}
 
 /* Tablet + mobile: collapse multi-column grids */
 @media (max-width: 880px) {

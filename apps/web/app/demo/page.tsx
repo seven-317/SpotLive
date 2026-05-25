@@ -109,7 +109,7 @@ function CodeBlock({
         <span>{filename}</span>
         <span>tsx</span>
       </div>
-      <div style={{ padding: "18px 20px", lineHeight: 1.7 }}>{children}</div>
+      <div style={{ padding: "18px 20px", lineHeight: 1.7, overflowX: "auto" }}>{children}</div>
     </div>
   );
 }
