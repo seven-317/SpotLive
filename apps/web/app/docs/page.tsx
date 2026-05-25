@@ -150,6 +150,7 @@ export default function DocsPage() {
         }}
       >
         <div
+          className="rwd-container"
           style={{
             maxWidth: 1200,
             margin: "0 auto",
@@ -158,6 +159,7 @@ export default function DocsPage() {
             justifyContent: "space-between",
             alignItems: "baseline",
             gap: 24,
+            flexWrap: "wrap",
           }}
         >
           <h1
@@ -549,11 +551,11 @@ export default function DocsPage() {
             Props reference
           </h2>
 
+          <div style={{ overflowX: "auto", margin: "16px 0 28px" }}>
           <table
             style={{
               width: "100%",
               borderCollapse: "collapse",
-              margin: "16px 0 28px",
               fontSize: "0.92rem",
             }}
           >
@@ -652,6 +654,7 @@ export default function DocsPage() {
               ))}
             </tbody>
           </table>
+          </div>
 
           {/* ---- 06 API route ---- */}
           <h2 id="api" style={h2Style}>
