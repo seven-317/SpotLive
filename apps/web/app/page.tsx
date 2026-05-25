@@ -250,8 +250,8 @@ export default function Home() {
       </header>
 
       {/* ===== TWO STYLES ===== */}
-      <section style={section}>
-        <div style={container}>
+      <section className="rwd-section" style={section}>
+        <div className="rwd-container" style={container}>
           {/* Section label */}
           <div
             style={{
@@ -272,6 +272,7 @@ export default function Home() {
               <em style={{ color: "var(--green-deep)" }}>Same wire.</em>
             </h2>
             <span
+              className="rwd-hide-sm"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.8rem",
@@ -397,8 +398,8 @@ export default function Home() {
       </section>
 
       {/* ===== INSTALL ===== */}
-      <section style={section}>
-        <div style={container}>
+      <section className="rwd-section" style={section}>
+        <div className="rwd-container" style={container}>
           <div
             style={{
               display: "flex",
@@ -418,6 +419,7 @@ export default function Home() {
               <em style={{ color: "var(--green-deep)" }}>One coffee.</em>
             </h2>
             <span
+              className="rwd-hide-sm"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.8rem",
@@ -430,6 +432,7 @@ export default function Home() {
           </div>
 
           <div
+            className="rwd-stack"
             style={{
               display: "grid",
               gridTemplateColumns: "1.1fr 1fr",
@@ -658,8 +661,8 @@ export default function Home() {
       </section>
 
       {/* ===== FEATURES ===== */}
-      <section style={section}>
-        <div style={container}>
+      <section className="rwd-section" style={section}>
+        <div className="rwd-container" style={container}>
           <div
             style={{
               display: "flex",
@@ -679,6 +682,7 @@ export default function Home() {
               <em style={{ color: "var(--green-deep)" }}>get.</em>
             </h2>
             <span
+              className="rwd-hide-sm"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.8rem",
@@ -767,8 +771,8 @@ export default function Home() {
       </section>
 
       {/* ===== FRAMEWORKS ===== */}
-      <section style={{ ...section, borderBottom: "none" }}>
-        <div style={container}>
+      <section className="rwd-section" style={{ ...section, borderBottom: "none" }}>
+        <div className="rwd-container" style={container}>
           <div
             style={{
               display: "flex",
@@ -788,6 +792,7 @@ export default function Home() {
               <em style={{ color: "var(--green-deep)" }}>what you have.</em>
             </h2>
             <span
+              className="rwd-hide-sm"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.8rem",
