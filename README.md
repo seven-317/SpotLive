@@ -1,5 +1,7 @@
 [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/seven317)
 
+![badge](https://shieldcn.dev/npm/spotlive.png) ![badge](https://shieldcn.dev/npm/node/spotlive.png) ![badge](https://shieldcn.dev/npm/types/spotlive.png) ![badge](https://shieldcn.dev/npm/dm/spotlive.svg) ![badge](https://shieldcn.dev/npm/license/spotlive.png)
+
 # SpotLive
 
 A drop-in **Spotify "Now Playing"** widget for Next.js — shadcn/ui style. One CLI command copies a `SpotLive.tsx` component and an `/api/spotify` route handler straight into your project. Zero UI dependencies, zero runtime libraries; just React + Tailwind.
@@ -321,8 +323,16 @@ SpotLive/
     └── lib/weeknd-tracks.ts   # Demo data used by the site
 ```
 
----
-
 ## License
 
 MIT. Not affiliated with Spotify AB.
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=seven-317%2FSpotLive&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=seven-317/SpotLive&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=seven-317/SpotLive&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=seven-317/SpotLive&type=date&legend=top-left" />
+ </picture>
+</a>
