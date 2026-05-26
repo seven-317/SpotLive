@@ -157,7 +157,7 @@ export default function Home() {
               }}
             >
               {[
-                { k: "Bundle size", v: "~12kb" },
+                { k: "Bundle size", v: "~40kb" },
                 { k: "Dependencies", v: "0" },
                 { k: "Frameworks", v: "Next · React" },
               ].map((m) => (
